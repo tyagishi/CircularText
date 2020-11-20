@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CircularText: View {
+public struct CircularText: View {
     @Binding var displayText: String
     @Binding var font: Font
     @Binding var color: Color
@@ -35,7 +35,7 @@ struct CircularText: View {
         self._clockwise = clockwise
     }
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             ForEach(0..<displayText.count) { index in
                 Text(String(Array(displayText)[index]))
