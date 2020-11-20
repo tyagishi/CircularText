@@ -2,6 +2,24 @@
 
 Convenient SwiftUI view which place string along specified circle.
 
+## initializer
+```swift
+public init(displayText:Binding<String>,
+            radius: Binding<CGFloat>,
+            font: Binding<Font> = .constant(.body),
+            color: Binding<Color> = .constant(.black),
+            startAngle: Binding<Double> = .constant(0),
+            endAngle: Binding<Double?> = .constant(nil),
+            stepAngle: Binding<Double> = .constant(4),
+            clockwise: Binding<Bool> = .constant(true)) {
+    ...
+}
+```
+View will display displayText with specified font/color along circle which has specified radius between startAngle and end Angle.
+or if endAngle is Not given, each character will placed every 4 degree. (or you can specify step degree too).
+
+displayText and radius is mandatory arguments.
+
 ## code example
 
 ```swift
