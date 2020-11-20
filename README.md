@@ -2,6 +2,9 @@
 
 Convenient SwiftUI view which place string along specified circle.
 
+## image
+![image of CircularText (and Circle)](https://user-images.githubusercontent.com/6419800/99757920-c72eed80-2b33-11eb-8e2f-05f371940e8f.png)
+
 ## initializer
 ```swift
 public init(displayText:Binding<String>,
