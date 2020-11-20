@@ -8,36 +8,36 @@
 import SwiftUI
 
 public struct CircularText: View {
-    @Binding var displayText: String
-    @Binding var font: Font
-    @Binding var color: Color
-    @Binding var radius: CGFloat
-    @Binding var startAngle: Double
-    @Binding var endAngle: Double?
-    @Binding var stepAngle: Double
-    @Binding var clockwise: Bool
+    var displayText: String
+    var font: Font
+    var color: Color
+    var radius: CGFloat
+    var startAngle: Double
+    var endAngle: Double?
+    var stepAngle: Double
+    var clockwise: Bool
 
-    public init(displayText:Binding<String>,
-                radius: Binding<CGFloat>,
-                font: Binding<Font> = .constant(.body),
-                color: Binding<Color> = .constant(.black),
-                startAngle: Binding<Double> = .constant(0),
-                endAngle: Binding<Double?> = .constant(nil),
-                stepAngle: Binding<Double> = .constant(4),
-                clockwise: Binding<Bool> = .constant(true)) {
-        self._displayText = displayText
-        self._font = font
-        self._color = color
-        self._radius = radius
-        self._startAngle = startAngle
-        self._endAngle = endAngle
-        self._stepAngle = stepAngle
-        self._clockwise = clockwise
+    public init(displayText:String,
+                radius: CGFloat,
+                font: Font = .body,
+                color: Color = .black,
+                startAngle:Double = 0.0,
+                endAngle: Double? = nil,
+                stepAngle: Double = 4,
+                clockwise: Bool = true) {
+        self.displayText = displayText
+        self.font = font
+        self.color = color
+        self.radius = radius
+        self.startAngle = startAngle
+        self.endAngle = endAngle
+        self.stepAngle = stepAngle
+        self.clockwise = clockwise
     }
 
     public var body: some View {
         ZStack {
-            ForEach(0..<displayText.count) { index in
+            ForEach(0..<displayText.count, id: \.self) { index in
                 Text(String(Array(displayText)[index]))
                     .font(font)
                     .foregroundColor(color)
@@ -65,13 +65,13 @@ public struct CircularText: View {
 
 struct CircularText_Previews: PreviewProvider {
     static var previews: some View {
-        CircularText(displayText: .constant("text along circle"),
-                     radius: .constant(200),
-                     font:.constant(.largeTitle),
-                     color: .constant(.black),
-                     startAngle: .constant(45),
-                     endAngle: .constant(180),
-                     stepAngle: .constant(10),
-                     clockwise: .constant(true))
+        CircularText(displayText: "text along circle",
+                     radius: 200,
+                     font:.largeTitle,
+                     color: .black,
+                     startAngle: 45,
+                     endAngle: 180,
+                     stepAngle: 10,
+                     clockwise: true)
     }
 }
