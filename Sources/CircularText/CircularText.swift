@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// place string along circle
 public struct CircularText: View {
     var displayText: String
     var font: Font
@@ -17,6 +18,7 @@ public struct CircularText: View {
     var stepAngle: Double
     var clockwise: Bool
 
+    /// constructor
     public init(displayText:String,
                 radius: CGFloat,
                 font: Font = .body,
