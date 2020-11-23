@@ -58,6 +58,10 @@ public struct CircularText: View {
         } else {
             // with static step
             step = stepAngle
+            let arclength = 2 * Double.pi * step / 360 * Double(radius)
+            if arclength < 8 {
+                step = 8.0 / 2 / Double.pi * 360 / Double(radius)
+            }
         }
         step = (clockwise ? step : (-1)*step)
         return Angle(degrees: (startAngle + Double(index) * step))
